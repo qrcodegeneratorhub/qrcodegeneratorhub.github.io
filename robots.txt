@@ -1,3 +1,4 @@
 User-agent: *
 Allow: /
-Sitemap: https://qrcodegenerator.github.io/sitemap.xml
+Sitemap: https://qrcodegeneratorhub.github.io/sitemap.xml
+
