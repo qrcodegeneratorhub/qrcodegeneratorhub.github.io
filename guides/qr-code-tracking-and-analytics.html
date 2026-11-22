@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Can You Track QR Code Scans? Analytics Explained | QR Code Generator</title>
+<meta name="description" content="Static codes tell you nothing. Dynamic codes tell you everything — for a price. How QR tracking works and what it can (and cannot) show.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="canonical" href="https://qrcodegenerator.github.io/guides/qr-code-tracking-and-analytics.html">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:#1e1b4b;background:#f8fafc;line-height:1.6}
+a{color:#4f46e5;text-decoration:none}
+a:hover{text-decoration:underline}
+header{background:#1e1b4b;color:#fff;padding:14px 20px;position:sticky;top:0;z-index:10}
+header .wrap{max-width:900px;margin:0 auto;display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.logo{font-size:22px;font-weight:800;color:#fff;letter-spacing:-.5px}
+.logo span{color:#a5b4fc}
+nav{display:flex;gap:14px;flex-wrap:wrap;margin-left:auto}
+nav a{color:#c7d2fe;font-size:14px}
+nav a:hover{color:#fff}
+.wrap{max-width:900px;margin:0 auto;padding:0 20px}
+.hero{background:linear-gradient(135deg,#1e1b4b,#4f46e5);color:#fff;padding:40px 0 30px}
+.hero h1{font-size:32px;line-height:1.2;margin-bottom:10px}
+.hero p{color:#e0e7ff;max-width:680px;font-size:17px}
+.toolbox{background:#fff;border:1px solid #e2e8f0;border-radius:14px;padding:24px;margin:24px 0;box-shadow:0 4px 18px rgba(30,27,75,.07)}
+.toolbox h2{font-size:22px;margin-bottom:6px}
+.toolbox p.sub{color:#475569;margin-bottom:16px}
+label{display:block;font-weight:600;margin:14px 0 6px}
+input[type=text],input[type=number],input[type=email],input[type=url],input[type=tel],textarea,select{width:100%;padding:11px 12px;border:1px solid #cbd5e1;border-radius:8px;font-size:16px;font-family:inherit}
+textarea{min-height:90px;resize:vertical}
+.checks{display:flex;gap:18px;flex-wrap:wrap;margin-top:6px}
+.checks label{font-weight:500;margin:0;display:flex;gap:7px;align-items:center}
+button,.btn{display:inline-block;background:#4f46e5;color:#fff;border:0;border-radius:9px;padding:12px 22px;font-size:16px;font-weight:700;cursor:pointer}
+button:hover,.btn:hover{background:#4338ca}
+button.secondary{background:#e2e8f0;color:#1e1b4b}
+button.secondary:hover{background:#cbd5e1}
+.qrwrap{text-align:center;margin:18px 0}
+.qrwrap canvas{border:1px solid #e2e8f0;border-radius:10px;max-width:100%;height:auto}
+.meta{color:#475569;font-size:14px}
+.note{font-size:13px;color:#64748b}
+.warn{background:#fffbeb;border:1px solid #fde68a;border-radius:10px;padding:14px;margin:14px 0;font-size:15px}
+.result{background:#eef2ff;border:1px solid #c7d2fe;border-radius:10px;padding:14px;margin:14px 0;font-family:ui-monospace,Menlo,Consolas,monospace;word-break:break-all;font-size:14px}
+section{padding:22px 0}
+h2.sec{font-size:24px;margin-bottom:4px}
+p.lead{color:#475569;margin-bottom:14px}
+.list{list-style:none}
+.list li{background:#fff;border:1px solid #e2e8f0;border-radius:12px;margin-bottom:12px;overflow:hidden}
+.list li a.row{display:flex;gap:16px;padding:16px;color:#1e1b4b;align-items:flex-start}
+.list li a.row:hover{text-decoration:none;background:#f5f7ff}
+.list img.thumb{width:120px;height:84px;object-fit:cover;border-radius:8px;flex:0 0 120px}
+.list h3{font-size:17px;line-height:1.35;margin-bottom:4px}
+.list p{font-size:14px;color:#475569}
+.list .tag{font-size:12px;font-weight:700;color:#4f46e5;text-transform:uppercase;letter-spacing:.5px}
+article.prose{background:#fff;border:1px solid #e2e8f0;border-radius:14px;padding:28px;margin:24px 0}
+article.prose h1{font-size:29px;line-height:1.25;margin-bottom:8px}
+article.prose h2{font-size:21px;margin:26px 0 8px}
+article.prose p{margin-bottom:14px}
+article.prose ul{margin:0 0 14px 22px}
+article.prose li{margin-bottom:6px}
+.heroimg{width:100%;border-radius:12px;margin:10px 0 6px}
+.faq{background:#eef2ff;border-radius:12px;padding:20px;margin-top:26px}
+.faq h2{margin:0 0 10px}
+.faq h3{font-size:16px;margin:14px 0 4px}
+.faq p{font-size:15px;color:#334155}
+.breadcrumb{font-size:14px;color:#64748b;margin:18px 0 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+.feat{background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:16px}
+.feat h3{font-size:16px;margin-bottom:6px}
+.feat p{font-size:14px;color:#475569}
+footer{background:#1e1b4b;color:#a5b4fc;padding:30px 0;margin-top:30px}
+footer a{color:#e0e7ff}
+footer .wrap{display:flex;gap:20px;flex-wrap:wrap;justify-content:space-between}
+@media(max-width:640px){.hero h1{font-size:26px}article.prose{padding:18px}.list img.thumb{width:96px;height:68px;flex-basis:96px}}
+</style>
+</head>
+<body>
+<header><div class="wrap"><a class="logo" href="/">QR<span>Code</span>Generator</a>
+<nav><a href="/">Home</a><a href="/tools/qr-wifi.html">Wi-Fi</a><a href="/tools/qr-contact.html">Contact</a><a href="/tools/qr-email.html">Email</a><a href="/tools/qr-sms.html">SMS</a></nav></div></header>
+<div class="wrap"><p class="breadcrumb"><a href="/">Home</a> &rsaquo; Guides &rsaquo; Can You Track QR Code Scans? Analytics Explained</p><article class="prose"><h1>Can You Track QR Code Scans? Analytics Explained</h1><p class="meta">Static codes tell you nothing. Dynamic codes tell you everything — for a price. How QR tracking works and what it can (and cannot) show.</p><img class="heroimg" src="/images/qr-code-tracking-and-analytics.jpg" alt="Can You Track QR Code Scans? Analytics Explained"><p>A business that prints a thousand flyers with a QR code naturally wants to know whether anyone scanned it. The answer depends on the kind of code. A static QR code, like the ones generated on this site, contains its destination directly and reports nothing: no count, no time, no location. A dynamic QR code routes the scan through a service that counts it and records details. Both approaches have their place, and the choice is a trade-off between privacy, cost and information. This guide explains what each option can show you, what it costs, and how to get useful numbers without paying for a service you do not need.</p><h2>What static codes can and cannot tell you</h2><p>A static code is invisible to its creator after it is printed. You cannot know how many times it was scanned, when, or by whom, because there is no server in the middle to count. What you can measure is the traffic that arrives at the destination: if a flyer code points to a specific page, your website statistics will show how many visits that page received. Give each placement its own page or its own tracking tag, and you can compare them — the menu code against the window code, the flyer code against the poster code. This is free, private, and usually enough for a small business. What it cannot tell you is how many people scanned the code and then left without the page loading, or where they were when they scanned it.</p><h2>What dynamic codes track</h2><p>A dynamic QR code points to a redirect service, which counts every scan and typically records the time, the approximate location, the device type, and whether the scan was unique. That data is genuinely useful for a marketing campaign: you can see which city scanned most, which day performed best, and whether a poster or a flyer drove more traffic. The cost is a subscription, and the data belongs to the service as much as to you. Before choosing a dynamic service, check what data it collects, how long it keeps it, and whether your customers would be comfortable with that tracking. In some countries, tracking scans without notice may have legal implications, so check the rules where you operate.</p><h2>Free ways to measure static codes</h2><p>You can get most of the value of tracking without a dynamic service. Use a short, distinct URL for each code, so your website analytics separate the traffic by placement. Add a simple question to your order or booking form — How did you hear about us? — with the QR code as one of the options. Count the outcomes that matter, such as bookings, orders or reviews, rather than the scans themselves, because a scan that produces nothing is not worth much. And run a simple test: put a code in one place for a month, then move it, and compare the traffic. These methods cost nothing, respect your customers' privacy, and answer the question that actually matters: is the code bringing in business?</p><h2>What the numbers cannot tell you</h2><p>Scan counts are easy to misread. A high scan count with no conversions usually means the code is intriguing but the destination is disappointing — the wrong page, a slow load, or a form that is too long. A low scan count can mean the code is badly placed, too small, or unexplained, rather than that nobody is interested. And a code that is scanned once by the right person — a buyer, a client, a journalist — can be worth more than a thousand scans by passers-by. Treat scan data as a hint, not a verdict, and pair it with the outcomes you care about. The best measure of a QR code is not how many people scanned it, but how many of them did what you wanted.</p><h2>Privacy: what your customers expect</h2><p>Customers generally accept that a business counts visits to its own website, but they are less comfortable with a service recording their location and device every time they scan a code. If you use dynamic codes, be transparent: your privacy policy should say that scans are counted, and the destination page should not collect more data than it needs. Prefer services that aggregate the data and delete it after a reasonable period. And remember that the simplest, most private option — a static code with a distinct destination — is also the cheapest and the most durable, because it keeps working even if the tracking service disappears.</p><div class="faq"><h2>Frequently asked questions</h2><h3>Can I see how many people scanned my QR code?</h3><p>Only with a dynamic code, which routes scans through a tracking service. Static codes report nothing, but you can count visits to the destination page.</p><h3>Is QR code tracking legal?</h3><p>Counting visits to your own website is fine. Recording scan locations and devices may have legal implications, so check the rules where you operate.</p><h3>Do I need tracking for a small business?</h3><p>Usually not. Distinct destination addresses and counting the resulting orders or bookings gives you the information you need for free.</p></div><h2>More guides</h2><ul><li><a href="/guides/how-to-make-a-qr-code.html">How to Make a QR Code in Seconds</a></li><li><a href="/guides/qr-code-for-wifi.html">How to Create a QR Code for Your Wi-Fi Network</a></li><li><a href="/guides/qr-codes-for-small-business.html">QR Codes for Small Business: 12 Practical Uses</a></li><li><a href="/guides/how-to-scan-qr-code.html">How to Scan a QR Code on Any Phone</a></li></ul><p><a class="btn" href="/">Try the free QR code generator</a></p></article></div>
+<footer><div class="wrap"><div><strong style="color:#fff">QR Code Generator</strong><br>Free QR code tools that run entirely in your browser.<br>Your data never leaves your device.</div><div><a href="/about.html">About</a> &middot; <a href="/contact.html">Contact</a> &middot; <a href="/privacy.html">Privacy Policy</a> &middot; <a href="/disclaimer.html">Disclaimer</a></div></div></footer>
+</body>
+</html>

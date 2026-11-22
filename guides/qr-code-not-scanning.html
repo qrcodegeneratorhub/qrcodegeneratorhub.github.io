@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>QR Code Not Scanning? 10 Fixes That Work | QR Code Generator</title>
+<meta name="description" content="Your code will not scan and your flyers are already printed. Work through these ten fixes, from the obvious to the obscure.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="canonical" href="https://qrcodegenerator.github.io/guides/qr-code-not-scanning.html">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:#1e1b4b;background:#f8fafc;line-height:1.6}
+a{color:#4f46e5;text-decoration:none}
+a:hover{text-decoration:underline}
+header{background:#1e1b4b;color:#fff;padding:14px 20px;position:sticky;top:0;z-index:10}
+header .wrap{max-width:900px;margin:0 auto;display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.logo{font-size:22px;font-weight:800;color:#fff;letter-spacing:-.5px}
+.logo span{color:#a5b4fc}
+nav{display:flex;gap:14px;flex-wrap:wrap;margin-left:auto}
+nav a{color:#c7d2fe;font-size:14px}
+nav a:hover{color:#fff}
+.wrap{max-width:900px;margin:0 auto;padding:0 20px}
+.hero{background:linear-gradient(135deg,#1e1b4b,#4f46e5);color:#fff;padding:40px 0 30px}
+.hero h1{font-size:32px;line-height:1.2;margin-bottom:10px}
+.hero p{color:#e0e7ff;max-width:680px;font-size:17px}
+.toolbox{background:#fff;border:1px solid #e2e8f0;border-radius:14px;padding:24px;margin:24px 0;box-shadow:0 4px 18px rgba(30,27,75,.07)}
+.toolbox h2{font-size:22px;margin-bottom:6px}
+.toolbox p.sub{color:#475569;margin-bottom:16px}
+label{display:block;font-weight:600;margin:14px 0 6px}
+input[type=text],input[type=number],input[type=email],input[type=url],input[type=tel],textarea,select{width:100%;padding:11px 12px;border:1px solid #cbd5e1;border-radius:8px;font-size:16px;font-family:inherit}
+textarea{min-height:90px;resize:vertical}
+.checks{display:flex;gap:18px;flex-wrap:wrap;margin-top:6px}
+.checks label{font-weight:500;margin:0;display:flex;gap:7px;align-items:center}
+button,.btn{display:inline-block;background:#4f46e5;color:#fff;border:0;border-radius:9px;padding:12px 22px;font-size:16px;font-weight:700;cursor:pointer}
+button:hover,.btn:hover{background:#4338ca}
+button.secondary{background:#e2e8f0;color:#1e1b4b}
+button.secondary:hover{background:#cbd5e1}
+.qrwrap{text-align:center;margin:18px 0}
+.qrwrap canvas{border:1px solid #e2e8f0;border-radius:10px;max-width:100%;height:auto}
+.meta{color:#475569;font-size:14px}
+.note{font-size:13px;color:#64748b}
+.warn{background:#fffbeb;border:1px solid #fde68a;border-radius:10px;padding:14px;margin:14px 0;font-size:15px}
+.result{background:#eef2ff;border:1px solid #c7d2fe;border-radius:10px;padding:14px;margin:14px 0;font-family:ui-monospace,Menlo,Consolas,monospace;word-break:break-all;font-size:14px}
+section{padding:22px 0}
+h2.sec{font-size:24px;margin-bottom:4px}
+p.lead{color:#475569;margin-bottom:14px}
+.list{list-style:none}
+.list li{background:#fff;border:1px solid #e2e8f0;border-radius:12px;margin-bottom:12px;overflow:hidden}
+.list li a.row{display:flex;gap:16px;padding:16px;color:#1e1b4b;align-items:flex-start}
+.list li a.row:hover{text-decoration:none;background:#f5f7ff}
+.list img.thumb{width:120px;height:84px;object-fit:cover;border-radius:8px;flex:0 0 120px}
+.list h3{font-size:17px;line-height:1.35;margin-bottom:4px}
+.list p{font-size:14px;color:#475569}
+.list .tag{font-size:12px;font-weight:700;color:#4f46e5;text-transform:uppercase;letter-spacing:.5px}
+article.prose{background:#fff;border:1px solid #e2e8f0;border-radius:14px;padding:28px;margin:24px 0}
+article.prose h1{font-size:29px;line-height:1.25;margin-bottom:8px}
+article.prose h2{font-size:21px;margin:26px 0 8px}
+article.prose p{margin-bottom:14px}
+article.prose ul{margin:0 0 14px 22px}
+article.prose li{margin-bottom:6px}
+.heroimg{width:100%;border-radius:12px;margin:10px 0 6px}
+.faq{background:#eef2ff;border-radius:12px;padding:20px;margin-top:26px}
+.faq h2{margin:0 0 10px}
+.faq h3{font-size:16px;margin:14px 0 4px}
+.faq p{font-size:15px;color:#334155}
+.breadcrumb{font-size:14px;color:#64748b;margin:18px 0 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+.feat{background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:16px}
+.feat h3{font-size:16px;margin-bottom:6px}
+.feat p{font-size:14px;color:#475569}
+footer{background:#1e1b4b;color:#a5b4fc;padding:30px 0;margin-top:30px}
+footer a{color:#e0e7ff}
+footer .wrap{display:flex;gap:20px;flex-wrap:wrap;justify-content:space-between}
+@media(max-width:640px){.hero h1{font-size:26px}article.prose{padding:18px}.list img.thumb{width:96px;height:68px;flex-basis:96px}}
+</style>
+</head>
+<body>
+<header><div class="wrap"><a class="logo" href="/">QR<span>Code</span>Generator</a>
+<nav><a href="/">Home</a><a href="/tools/qr-wifi.html">Wi-Fi</a><a href="/tools/qr-contact.html">Contact</a><a href="/tools/qr-email.html">Email</a><a href="/tools/qr-sms.html">SMS</a></nav></div></header>
+<div class="wrap"><p class="breadcrumb"><a href="/">Home</a> &rsaquo; Guides &rsaquo; QR Code Not Scanning? 10 Fixes That Work</p><article class="prose"><h1>QR Code Not Scanning? 10 Fixes That Work</h1><p class="meta">Your code will not scan and your flyers are already printed. Work through these ten fixes, from the obvious to the obscure.</p><img class="heroimg" src="/images/qr-code-not-scanning.jpg" alt="QR Code Not Scanning? 10 Fixes That Work"><p>A QR code that will not scan is frustrating, especially when it is already printed on a hundred flyers, a menu, or a shop window. The cause is almost always one of a small set of problems — size, contrast, damage, distance, or content — and most of them can be fixed without reprinting everything. Work through these ten fixes in order, testing as you go, and you will find the culprit. If you are the person scanning rather than the person who made the code, the first five fixes are the ones that apply to you</p><h2>Fixes 1 to 3: distance, light and lens</h2><p>First, change your distance: hold the phone 15 to 30 centimetres from a small code, and further back for a large one, because a code that fills the whole screen cannot be read either. Second, fix the light: scan in bright, even light, and move to avoid glare and reflections, which are the most common reason codes on screens and laminated paper fail. Third, clean your camera lens — a smudged lens blurs the code's fine detail, and a quick wipe with a soft cloth fixes it. These three steps solve more scanning failures than everything else combined, and they cost nothing.</p><h2>Fixes 4 to 6: size, contrast and damage</h2><p>Fourth, check the size: a code smaller than about 2 centimetres is hard for most phones to read at arm's length, and a code meant to be scanned from across a room needs to be far bigger — roughly 10 centimetres of width per metre of distance. Fifth, check the contrast: QR codes need dark modules on a light background, and low-contrast designs, such as grey on white or a code printed over a photo, often fail. Sixth, check for damage: a code with a torn corner, a coffee stain, or a crease across it may still scan if error correction can reconstruct it, but if one of the three large position squares in the corners is damaged, the scanner cannot find the code at all.</p><h2>Fixes 7 to 8: content and quiet zone</h2><p>Seventh, simplify the contents: a code that encodes a very long URL has many tiny modules that are hard to read, especially when printed small. Shorten the URL with a short link or a redirect, and the code becomes simpler and far more reliable. Eighth, check the quiet zone — the blank margin around the code. Scanners need at least four modules of clear space on every side to locate the code; a code printed right up against text, a border or another image will be missed. If your design crowds the code, add white space around it and try again.</p><h2>Fixes 9 to 10: phone settings and the code itself</h2><p>Ninth, check the phone: make sure QR scanning is enabled in the camera settings, try a different camera app or Google Lens, and restart the phone if the camera is behaving strangely. An outdated phone may not support QR scanning in the camera at all, in which case a scanner app from the official store will help. Tenth, verify the code itself: scan it on a different phone, and check that the code was generated correctly — a code created from a corrupted file, a screenshot of a screenshot, or a low-resolution image may be unreadable no matter what you do. Regenerate it at high resolution and test the new one before reprinting.</p><h2>When to reprint, and how to avoid it next time</h2><p>If the code is damaged, too small, or low contrast on the printed material, reprinting is the only fix — but reprint smartly. Print one copy first, scan it from the distance your audience will use, in the lighting where it will be displayed, on two different phones. Only then print the full run. Keep the original high-resolution file, so a reprint is quick. And remember the rule that prevents most of these problems: a bigger, simpler, high-contrast code with a clear margin scans reliably, while a small, dense, decorative one is a gamble. Design for the scanner, not for the eye.</p><div class="faq"><h2>Frequently asked questions</h2><h3>Why does my QR code scan on one phone but not another?</h3><p>Different cameras and apps have different tolerances. A code that only works on one phone is marginal — make it bigger, simpler or higher contrast.</p><h3>Can I fix a QR code without reprinting?</h3><p>Sometimes. Improving light, distance and angle helps the scanner, but a damaged, tiny or low-contrast print usually needs reprinting.</p><h3>Does zooming in help scan a QR code?</h3><p>Yes, often. Pinch to zoom in the camera app, which helps with small or distant codes.</p></div><h2>More guides</h2><ul><li><a href="/guides/how-to-make-a-qr-code.html">How to Make a QR Code in Seconds</a></li><li><a href="/guides/qr-code-for-wifi.html">How to Create a QR Code for Your Wi-Fi Network</a></li><li><a href="/guides/qr-codes-for-small-business.html">QR Codes for Small Business: 12 Practical Uses</a></li><li><a href="/guides/how-to-scan-qr-code.html">How to Scan a QR Code on Any Phone</a></li></ul><p><a class="btn" href="/">Try the free QR code generator</a></p></article></div>
+<footer><div class="wrap"><div><strong style="color:#fff">QR Code Generator</strong><br>Free QR code tools that run entirely in your browser.<br>Your data never leaves your device.</div><div><a href="/about.html">About</a> &middot; <a href="/contact.html">Contact</a> &middot; <a href="/privacy.html">Privacy Policy</a> &middot; <a href="/disclaimer.html">Disclaimer</a></div></div></footer>
+</body>
+</html>
